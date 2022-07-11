@@ -10,13 +10,13 @@ const removeChilds = (parent) => {
 const dropDownMenu = {
 
   createDropDownMenu(title, color, ...subTitles) {
-    menuCard.classList.remove('menu-card');
-    menuCard.classList.add(`menu-card-${title}`);
-    menuTitle.classList.remove('menu-title');
-    menuTitle.classList.add(`menu-title-${title}`);
+    menuCard.classList.replace('menu-card', `menu-card-${title}`);
+    menuTitle.classList.replace('menu-title', `menu-title-${title}`);
     menuCard.textContent = title;
     menuCard.style.display = 'inline-block';
     menuCard.style.backgroundColor = color;
+    menuCard.style.padding = '1em';
+    menuCard.style.borderRadius = '25px';
     menuCard.onclick = () => {
       if (menuTitle.childNodes.length === 1 || menuTitle.childNodes.length === 0) {
         subTitles.forEach((subtitle) => {
