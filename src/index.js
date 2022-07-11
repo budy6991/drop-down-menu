@@ -1,4 +1,4 @@
 import './style.css';
-import { createDropDownMenu } from './dropDownMenu';
+import dropDownMenu from './dropDownMenu';
 
-createDropDownMenu('Buy fruit', 'Yellow', 'Bananas', 'Apples', 'Cherries', 'Dragon fruit', 'Pears');
+dropDownMenu.createDropDownMenu('Fruits', 'Yellow', 'Banana', 'Apple', 'Pear', 'Dragon fruit');
