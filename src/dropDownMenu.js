@@ -1,28 +1,26 @@
+const menuCard = document.querySelector('.menu-card');
+const menuTitle = document.querySelector('.menu-title');
+
+const removeChilds = (parent) => {
+  while (parent.lastChild) {
+    parent.removeChild(parent.lastChild);
+  }
+};
+
 const createDropDownMenu = (title, color, ...subTitles) => {
-  const body = document.querySelector('body');
-  const menuCard = document.createElement('div');
-  const menuTitle = document.createElement('div');
-  const menuSubtitles = document.createElement('div');
-
-  menuCard.classList.add('menu-card');
-  menuTitle.classList.add('menu-title');
-  menuSubtitles.classList.add('menu-subtitles');
-
-  menuTitle.textContent = title;
-  menuSubtitles.textContent = subTitles;
+  menuCard.textContent = title;
   menuCard.style.backgroundColor = color;
-  menuCard.append(menuTitle);
-  body.append(menuCard);
-
   menuCard.onclick = () => {
-    if (menuCard.childNodes.length === 1) {
-      subTitles.forEach((subTitle) => {
-        const subTitleDiv = document.createElement('div');
-        subTitleDiv.textContent = subTitle;
-        menuCard.append(subTitleDiv);
+    if (menuTitle.childNodes.length === 1 || menuTitle.childNodes.length === 0) {
+      subTitles.forEach((subtitle) => {
+        const subDivs = document.createElement('div');
+        subDivs.textContent = subtitle;
+        menuTitle.append(subDivs);
+        menuCard.append(menuTitle);
       });
-    } else if (menuCard.childNodes.length > 1) {
-      menuCard.remove(subTitles);
+    } else if (menuTitle.childNodes.length >= 1) {
+      removeChilds(menuTitle);
+      console.log(menuTitle.childNodes.length);
     }
   };
 };
